@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Properties</title>
+    <style>
+        h1{
+            color: chartreuse;
+            text-align: center;
+            text-decoration: overline rgb(208, 38, 67);
+            text-transform: capitalize;
+            text-shadow: 2px 2px 2px black;
+        }
+        table
+        {
+            /* border-collapse: collapse; */
+            border: 4px ;
+            border-style: double  solid groove hidden  ;
+            border-radius: 15px;
+            border-color: blue aquamarine;
+            box-shadow: 3px 5px 2px gray ;
+        }
+        .sample
+        {
+            
+            /* background-image: linear-gradient(red,pink,yellow,seagreen); */
+        }
+        th,td{
+            color: rgba(50, 13, 234, 0.299);
+        }
+        /* *
+        {
+            back
+            background-repeat: no-repeat;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_IqjsscA0Q4MsaVwYiTgzsvAGzcJDSqIE-ea-oPvjfRnhCcNATUPc2S8QQgiMfTpjFab5RuW6xnU&usqp=CAU&ec=48665699");
+        } */
+        #single
+        {
+            font-family: cursive;
+        }
+        .single
+        {
+            font-style: italic;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Basic properties
+    </h1>
+    <table align="center" border="1" cellpadding="10px" cellspacing="5px" >
+        <h1 align="center">StudentMark list</h1>
+        <thead class="sample">
+            <tr>
+                <th>Studentname</th>
+                <th id="single">10th Mark</th>
+                <th>12th Mark</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="single">
+                <td>
+                    Manojkumar
+                </td>
+                <td id="single">465</td>
+                <td>1065</td>
+                <td>94.3</td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+</body>
+</html>
