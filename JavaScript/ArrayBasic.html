@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Basic</title>
+</head>
+<body>
+    <script>
+
+        let ArrayCompile=["Manoj",22,true,55.6,'C'];
+
+        var ArrayValues=new Array();
+
+        ArrayValues.push("Manojkumar");
+        ArrayValues.push(22);
+        ArrayValues.push(88.8);
+        ArrayValues.push(true);
+        ArrayValues.push('M');
+
+        ArrayValues.pop();//onlyn deleted last element
+        // for(i=0;i<ArrayValues.length;i++)
+        // {
+        //     document.writeln("<b>"+ArrayValues[i]+"</b>"+"<br/>")
+        // }
+        
+        function printavalues(myvalues)
+        {
+            alert(myvalues)
+        }
+
+        ArrayValues.map(printavalues)
+    </script>
+    
+</body>
+</html>

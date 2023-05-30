@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions and Fat Arrow Functions</title>
+</head>
+<body>
+    <script>
+        function sample()
+        {
+            alert('BAsic FUnctions')
+        }
+        function WithArg(username,password)
+        {
+            document.write("my username is "+username+"\n mypassword :"+password)
+        }
+        let fatusing1=()=>
+        {
+            console.log("Execution implemented by insepct element")
+        }
+        var fat2=(a,b)=>
+        {
+         return a*b;   
+        }
+    </script>
+    <div>
+        <b ondblclick="document.write(WithArg('Manoj','Maddy78179289'))">my account details</b>
+        <p onclick="alert(fat2(45,2))">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique doloremque nesciunt, et sequi sit mollitia eos dolorem commodi ullam voluptatum illum ipsa eum fugiat atque maxime aperiam dolorum recusandae? Eveniet facilis optio accusamus placeat?</p>
+    </div>
+    
+</body>
+</html>
