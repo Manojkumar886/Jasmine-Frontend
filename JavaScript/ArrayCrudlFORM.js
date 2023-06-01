@@ -32,6 +32,8 @@ let Updating=()=>
 var Removing=()=>
 {
     let deletedvalue=document.getElementById('uservalue').value
+
+    // delete ChocolateNames[deletedvalue];
     alert(ChocolateNames[deletedvalue]+' has been deleted successfully');
     ChocolateNames=ChocolateNames.filter((data)=>
     { 
