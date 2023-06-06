@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Validation</title>
+</head>
+<body>
+    <script>
+        let Validation=()=>
+        {
+            // let username=document.forms['validation'].username.value
+
+            var number=document.forms['validation'].mobileno.value
+            alert("your value is "+((/^[0-9]{0,10}+$/)).test(number))
+        }
+    </script>
+    <form name="validation">
+        <input name="username" type="text" placeholder="ex:firstname"/>
+        <input name="mobileno" type="tel" placeholder="ex************"/>
+        <input type="submit" type="button" value="submit" onclick="Validation()"/>
+
+    </form>
+    
+</body>
+</html>
