@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Implementation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>
+        {
+            // alert("jquery begining")
+            $("body").css("backgroundColor","blue");
+            $("button").click(()=>
+            {
+                alert($("p").text())
+            })
+            $("ul").mouseenter(()=>
+            {
+                alert($("ul").text())
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        Colors Names
+        <li>Blue</li>
+        <li>Black</li>
+        <li>Violet</li>
+        <li>Seagreen</li>
+        <li>Chocolate Color</li>
+    </ul>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, ipsa.</p>
+    <button>
+        Click
+    </button>
+</body>
+</html>

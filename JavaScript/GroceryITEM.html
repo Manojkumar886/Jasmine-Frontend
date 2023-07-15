@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroceryItem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+        let need=["Milk","Eggs","Bacon"]
+        let have=["steak","cream","cheese"]
+
+       function needs()
+       {
+        for(pos=0;pos<need.length;pos++)
+        {
+            if(remove.value===need[pos])
+            {
+                delete need[pos]
+                location.reload();
+                return;
+            }
+        }
+       }
+        let remove="<button>"+needs()+"</button>"
+        document.getElementById('needlist').innerHTML="<ol><li>"+need+"</li></ol>"
+
+        document.getElementById('li')[0].innerHTML=item1.style.display.
+    </script>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 com-sm-12 bg-secondary">
+            <h4 class="text-center">SHOPPING DETAILS</h4>
+            <p class="text-center">a store that sells perishable and nonperishable food supplies and certain nonedible household items, such as soaps and paper products</p>
+            <img src="../Images/grocery.jpg" alt="..." class="card-img"/>
+            <div class="text-center">
+                <p class="h4">Shoping Details</p>
+                <input class="form-control" type="text" placeholder="which product you want or have"  />
+                <div class="row mt-2">
+                    <div class="col">
+                        <button class="btn btn-outline-warning" id="addneed">NEED</button>
+                    </div>
+                    <div class="col-5">
+                        <button class="btn btn-outline-danger" id="addhave">HAVE</button>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col" id="needlist">
+                        <h1>NEED:</h1>
+                        <ul class='list-group'>
+                            <li><input type="checkbox" id="item1" class="list-group-item"> Milk <a href="#" id="item1" onclick="needs()">&#10006;Delete</a></li>
+                            <li><input type="checkbox" id="item2" class="list-group-item"> Eggs <a href="#" id="item2">&#10006;</a></li>
+                            <li><input type="checkbox" id="item3" class="list-group-item"> Kitten Food <a href="#" id="item3">&#10006;</a></li>
+                            <li><input type="checkbox" id="item4" class="list-group-item"> Bacon <a href="#" id="item4">&#10006;</a></li>
+                        </ul>	
+                    </div>
+                    <div class="col" id="havelist">
+                        <h1>HAVE:</h1>
+                    </div>
+                </div>
+                
+            </div>
+            <button class="btn btn-outline-dark text-light col-4 float-end"><a>Add More Details</a></button>
+        </div>
+    </div>
+    
+</body>
+</html>

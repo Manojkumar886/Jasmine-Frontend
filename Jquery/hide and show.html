@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>
+        {
+            $("#hiding").click(()=>
+            {
+                $(".para").hide();
+            })
+            $("#showing").click(()=>
+            {
+                $(".para").show();
+            })
+        })
+    </script>
+</head>
+<body>
+    <p class="para">Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, ...   </p>
+    <p name="para1"> What is jQuery and why we use it?
+        <br>
+        jQuery is a lightweight, "write less, do more", JavaScript library. The purpose of jQuery is to make it much easier to use JavaScript on your website. jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.
+    </p>
+    <button id="showing">show</button>
+    <button id="hiding">hide</button>
+</body>
+</html>

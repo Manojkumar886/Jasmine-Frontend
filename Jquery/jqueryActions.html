@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery -Selectors</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>
+        {
+            $("button").click(()=>
+            {
+                const fullname=$("#fullname").val();
+                const emailid=$("input[name=email]").val();
+                
+                alert("my name is "+fullname+"\n my email id :\t"+emailid)
+                // $("#output1").val("my name is "+fullname+"\n my email id :\t"+emailid)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div align="center">
+        <label>Name:</label>
+        <input type="text" id="fullname" />
+        <br>
+        <label>Emailid</label>
+        <input type="email" name="email" />
+        <button id="btn">submit</button>
+        <output id="output1">
+
+        </output>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> multiactions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>
+        {
+            $("img").on([
+                $("img").click(()=>
+                {
+                    $("img").attr("width","1000px")
+                    $("img").attr("height","100px")
+                }),
+                $("img").dblclick(()=>
+                {
+                    $("img").attr("width","1300px")
+                    $("img").attr("height","300px")
+                    $("img").attr("src","../Images/grocery.jpg")
+                }),
+                $("img").click(()=>
+                {
+                    $("body").css("backgroundColor","chocolate")
+                })
+            ])
+        })
+    </script>
+</head>
+<body style="background-color: black;">
+    <img src="../Images/ZealousTechCorp.png" width="400px" height="500px" />
+    
+</body>
+</html>
