@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX CRUDL Client</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $("#update").click((eve)=>{
+                var sid=$("input[name=upstudid]").val()
+                var name=$("input[name=upstudname]").val()
+                var sslc=$("input[name=upstudsslcmark]").val()
+                var hsc=$("input[name=upstudhscmark]").val()
+                var city=$("input[name=upstudcity]").val()
+                sid=parseInt(sid)
+                sslc=parseInt(sslc)
+                hsc=parseInt(hsc)
+                alert(typeof(name)+" "+typeof(sslc)+" "+typeof(hsc)+" "+typeof(city))
+
+            
+                const myData={
+                    "studentRegno":sid,
+                    "studentName":name,
+                    "studentCity":city,
+                    "studentSslcmark":sslc,
+                    "studentHscmark":hsc,
+                }
+
+                alert(JSON.stringify(myData))
+
+                eve.preventDefault()
+
+                $.ajax({
+					type: "PUT",
+                    dataType:"text",
+					contentType: "application/json;charset=utf-8",
+					url: "http://localhost:8082/studentdet/update",
+					data: JSON.stringify(myData),
+                    success:function(data){
+                        $("#info").text("updated success")
+                        $("input[name=upstudid]").val("")
+                        $("input[name=upstudname]").val("")
+                        $("input[name=upstudsslcmark]").val("")
+                        $("input[name=upstudhscmark]").val("")
+                        $("input[name=upstudcity]").val("")
+
+                    },
+                    error:(err)=>{
+                        $("#info").text("updated failure")
+                    }
+				});
+
+                /*$.post("http://192.168.29.14:8082/studentdet/newstudentdetails",{
+                    "studname":name,
+                    "studcity":city,
+                    "studsslcmark":sslc,
+                    "studhscmark":hsc,
+                },(data)=>{
+                    alert(data)
+                }) */
+            })
+
+
+            $("#read").click((eve)=>{
+                eve.preventDefault()
+                const id=$("input[name=readId]").val()
+                // id=parseInt(id)
+                alert(id)
+                $.get("http://localhost:8082/studentdet/fetchone/"+id,(data)=>{
+                        $("#info").text("read success")                       
+                        $("input[name=studentName]").val(data.studentName)
+                        $("input[name=studentSslcmark]").val(data.studentSslcmark)
+                        $("input[name=studentHscmark]").val(data.studentHscmark)
+                        $("input[name=studentCity]").val(data.studentCity)
+                    }
+				);
+                $("input[name=byId]").val("")
+            })
+
+
+
+            $("#del").click((eve)=>{
+                eve.preventDefault()
+                var id=$("input[name=byId]").val()
+                id=parseInt(id)
+                $.ajax({
+					type: "DELETE",
+                    dataType:"text",
+					contentType: "application/json;charset=utf-8",
+					url: "http://localhost:8082/studentdet/deleteonevalue/"+id,
+                    success:function(data){
+                        $("#info").text("deleted success")
+                    },
+                    error:(err)=>{
+                        $("#info").text("deleted failure")
+                    }
+				});
+                $("input[name=byId]").val("")
+            })
+
+
+
+            $("#save").click((eve)=>{
+                var name=$("input[name=studentName]").val()
+                var sslc=$("input[name=studentSslcmark]").val()
+                var hsc=$("input[name=studentHscmark]").val()
+                var city=$("input[name=studentCity]").val()
+                sslc=parseInt(sslc)
+                hsc=parseInt(hsc)
+                alert(typeof(name)+" "+typeof(sslc)+" "+typeof(hsc)+" "+typeof(city))
+
+                const myData={
+                    "studentName":name,
+                    "studentCity":city,
+                    "studentSslcmark":sslc,
+                    "studentHscmark":hsc,
+                }
+
+                alert(JSON.stringify(myData))
+
+                eve.preventDefault()
+
+                $.ajax({
+					type: "POST",
+                    dataType:"text",
+					contentType: "application/json;charset=utf-8",
+					url: "http://localhost:8082/studentdet/newstudentdetails",
+					data: JSON.stringify(myData),
+                    success:function(data){
+                        $("#info").text("added success")
+                        $("input[name=studentName]").val("")
+                        $("input[name=studentSslcmark]").val("")
+                        $("input[name=studentHscmark]").val("")
+                        $("input[name=studentCity]").val("")
+
+                    },
+                    error:(err)=>{
+                        $("#info").text("added failure")
+                    }
+				});
+
+                /*$.post("http://192.168.29.14:8082/studentdet/newstudentdetails",{
+                    "studname":name,
+                    "studcity":city,
+                    "studsslcmark":sslc,
+                    "studhscmark":hsc,
+                },(data)=>{
+                    alert(data)
+                }) */
+            })
+
+
+
+            $("table").mouseenter(()=>{
+                $.get("http://localhost:8082/studentdet/",(data)=>{
+                    data.map((d)=>{
+                        $("#view").append(
+                            "<tr><td>"+d.studentRegno+"</td><td>"+d.studentName+"</td><td>"+d.studentHscmark+"</td><td>"+d.studentCity+"</td><td>"+d.studentSslcmark+"</td></tr>"
+                        )
+                    })
+                })
+            })
+            $("table").mouseleave(()=>{
+                $("#view").html("")
+            })
+        })
+    </script>
+</head>
+<body>
+    <table border="4px">
+        <thead>
+            <tr>
+                <th>ID</th><th>Name</th><th>HSC Mark</th><th>City</th><th>SSLC Mark</th>
+            </tr>
+        </thead>
+        <tbody id="view">
+            
+        </tbody>
+    </table>
+    <form name="insert">
+        <input type="text" name="studentName" />
+        <input type="text" name="studentHscmark" />
+        <input type="text" name="studentSslcmark" />
+        <input type="text" name="studentCity" />
+        <button id="save" style="background-color: aqua;">
+            Add
+        </button>
+    </form>
+    <p id="info"></p>
+    <div>
+        <input type="text" name="byId"/>
+        <button id="del" style="background-color: aqua;">Delete</button>
+    </div>
+    <div>
+        <input type="text" name="readId"/>
+        <button id="read" style="background-color: aqua;">Read</button>
+    </div>
+    <hr color="red"/>
+    <form name="update">
+        <input type="text" name="upstudid" />
+        <input type="text" name="upstudname" />
+        <input type="text" name="upstudhscmark" />
+        <input type="text" name="upstudsslcmark" />
+        <input type="text" name="upstudcity" />
+        <button id="update" style="background-color: aqua;">
+            Update
+        </button>
+    </form>
+</body>
+</html>
